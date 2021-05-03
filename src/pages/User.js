@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { useParams } from 'react-router-dom';
+import Profile from './../components/Profile';
 
 function User() {
 
-    const params = useParams();
-    console.log(params);
+    const { username } = useParams();
 
     return (
-        <div>
-            User...
-        </div>
+        <Fragment>
+            <Profile username={username} />
+        </Fragment>
     );
 };
 
