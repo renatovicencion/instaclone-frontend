@@ -6,7 +6,7 @@ import client from './config/apollo';
 import Auth from './pages/Auth';
 import { getToken } from './utils/token';
 import AuthContext from './context/AuthContext';
-import Home from './pages/Home';
+import Navigation from './routes/Navigation';
 
 const App = () => {
 
@@ -41,7 +41,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authData}>
-        { !auth ? <Auth /> : <Home />}
+        { !auth ? <Auth /> : <Navigation />}
 
         <ToastContainer
           position="top-right"
