@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 import { useParams } from 'react-router-dom';
-import Profile from './../components/Profile';
+import Profile from './../components/User/Profile';
 
 function User() {
 
