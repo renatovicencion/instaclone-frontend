@@ -7,6 +7,8 @@ import useAuth from './../../../hooks/useAuth';
 import UserNotFound from './../../UserNotFound';
 import ModalBasic from './../../Modal/ModalBasic';
 import AvatarForm from './../AvatarForm';
+import HeaderProfile from './HeaderProfile';
+import SettingsForm from './../SettingsForm/SettingsForm';
 import ImageNotFound from './../../../assets/png/avatar.png'
 
 import './Profile.scss';
@@ -19,7 +21,7 @@ const Profile = ({ username }) => {
 
     const { auth } = useAuth();
 
-    const { data, loading, error } = useQuery(GET_USER, {
+    const { data, loading, error, refetch } = useQuery(GET_USER, {
         variables: { username },
     });
 
@@ -33,8 +35,26 @@ const Profile = ({ username }) => {
         switch (type) {
             case "avatar":
                 setTitleModal("Cambiar foto de perfil");
-                setChildrenModal(<AvatarForm setShowModal={setShowModal} auth={auth} />);
+                setChildrenModal(
+                    <AvatarForm setShowModal={setShowModal} auth={auth} />
+                );
                 setShowModal(true);
+                break;
+            case "settings":
+                setTitleModal("");
+                setChildrenModal(
+                    <SettingsForm 
+                        setShowModal={setShowModal} 
+                        setTitleModal={setTitleModal} 
+                        setChildrenModal={setChildrenModal} 
+                        getUser={getUser}
+                        refetch={refetch}
+                    />
+                );
+                setShowModal(true);
+                break;
+            default:
+                break;
         }
     }
 
@@ -50,7 +70,7 @@ const Profile = ({ username }) => {
                 </Grid.Column>
 
                 <Grid.Column width={11} className="profile__right">
-                    <div>HeaderProfile</div>
+                    <HeaderProfile getUser={getUser} auth={auth} handlerModal={handlerModal} />
                     <div>Followers</div>
                     <div className="other">
                         <p className="name">{getUser.name}</p>
