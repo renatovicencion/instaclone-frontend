@@ -2,9 +2,11 @@ import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
 import { getToken } from './../utils/token';
+const cors_anywhere = 'https://cors-anywhere.herokuapp.com/';
+const base_url = 'https://rvn-instaclone-backend.herokuapp.com/';
 
 const httpLink = createUploadLink({
-    uri: "https://rvn-instaclone-backend.herokuapp.com/",
+    uri: `${cors_anywhere}${base_url}`,
 });
 
 const authLink = setContext((_, { headers }) => {
