@@ -64,7 +64,7 @@ const AvatarForm = ({ setShowModal, auth }) => {
         } catch (error) {
             console.log(error);
         }
-    }, []);
+    }, [setShowModal]);
 
     const { getRootProps, getInputProps } = useDropzone({
         accept: "image/jpeg, image/png",
