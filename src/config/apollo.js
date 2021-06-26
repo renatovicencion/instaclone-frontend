@@ -19,10 +19,12 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-    cors: true,
     connectToDevTools: true,
     cache: new InMemoryCache(),
     link: authLink.concat(httpLink),
+    fetchOptions: {
+        mode: 'no-cors',
+    },
 });
 
 export default client;
