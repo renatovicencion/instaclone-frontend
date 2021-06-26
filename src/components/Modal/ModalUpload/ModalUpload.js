@@ -21,7 +21,7 @@ function ModalUpload({ show, setShow }) {
             file,
             preview: URL.createObjectURL(file),
         });
-    });
+    }, []);
 
     const { getRootProps, getInputProps } = useDropzone({
         accept: "image/jpeg, image/png",

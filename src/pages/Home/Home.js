@@ -4,12 +4,8 @@ import { Grid } from 'semantic-ui-react';
 import Feed from './../../components/Home/Feed';
 import UsersNotFolloweds from './../../components/Home/UsersNotFolloweds';
 
-import useAuth from './../../hooks/useAuth';
-
 import './Home.scss';
 const Home = () => {
-
-    const auth = useAuth();
     
     return (
         <Grid className="home">

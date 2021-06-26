@@ -32,7 +32,7 @@ const RegisterForm = ({ setShowLogin }) => {
                 const newUser = formData;
                 delete newUser.repeatPassword;
 
-                const result = await register({
+                await register({
                     variables: {
                         input: newUser,
                     }

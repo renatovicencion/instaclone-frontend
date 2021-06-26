@@ -76,7 +76,7 @@ const Profile = ({ username, totalPublications }) => {
                     <div className="other">
                         <p className="name">{getUser.name}</p>
                         {getUser.siteWeb && (
-                            <a href={getUser.siteWeb} className="siteWeb" target="_blank">
+                            <a href={getUser.siteWeb} className="siteWeb" target="_blank" rel="noreferrer">
                                 {getUser.siteWeb}
                             </a>
                         )}
