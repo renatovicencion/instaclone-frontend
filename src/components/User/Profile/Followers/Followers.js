@@ -8,7 +8,7 @@ import ListUsers from './../../ListUsers';
 
 import './Followers.scss';
 
-function Followers({ username }) {
+function Followers({ username, totalPublications }) {
 
     const [showModal, setShowModal] = useState(false);
     const [titleModal, setTitleModal] = useState("");
@@ -71,7 +71,7 @@ function Followers({ username }) {
         <Fragment>
             <div className="followers">
                 <p>
-                    <span>**</span> publicaciones
+                    <span>{totalPublications}</span> publicaciones
                 </p>
 
                 <p className="link" onClick={openFollowers}>

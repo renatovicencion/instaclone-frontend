@@ -14,7 +14,7 @@ import ImageNotFound from './../../../assets/png/avatar.png'
 
 import './Profile.scss';
 
-const Profile = ({ username }) => {
+const Profile = ({ username, totalPublications }) => {
 
     const [showModal, setShowModal] = useState(false);
     const [titleModal, setTitleModal] = useState("");
@@ -72,7 +72,7 @@ const Profile = ({ username }) => {
 
                 <Grid.Column width={11} className="profile__right">
                     <HeaderProfile getUser={getUser} auth={auth} handlerModal={handlerModal} />
-                    <Followers username={username} />
+                    <Followers username={username} totalPublications={totalPublications} />
                     <div className="other">
                         <p className="name">{getUser.name}</p>
                         {getUser.siteWeb && (
